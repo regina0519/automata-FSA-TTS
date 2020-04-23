@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Document   : config.xml
+    Created on : 22 March, 2013, 9:05 AM
+    Author     : ANKIT
+    Description:
+        File specifies states and transition of an FSM.
+        This is an example file.
+-->
+<FSM>
+  <STATE id="STATE_MULAI" type="ID">
+    <MESSAGE id="SPASI" action=" " nextState="STATE_SPASI"/>
+    <MESSAGE id="A" action="A" nextState="STATE_V"/>
+    <MESSAGE id="I" action="I" nextState="STATE_V"/>
+    <MESSAGE id="U" action="U" nextState="STATE_V"/>
+    <MESSAGE id="E" action="E" nextState="STATE_V"/>
+    <MESSAGE id="O" action="O" nextState="STATE_V"/>
+
+    <MESSAGE id="N" action="N" nextState="STATE_Kn"/>
+    <MESSAGE id="K" action="K" nextState="STATE_Kk"/>
+    <MESSAGE id="S" action="S" nextState="STATE_Ks"/>
+    <MESSAGE id="G" action="G" nextState="STATE_Kg"/>
+    <MESSAGE id="B" action="B" nextState="STATE_Kb"/>
+    
+    <MESSAGE id="C" action="C" nextState="STATE_KLain"/>
+    <MESSAGE id="D" action="D" nextState="STATE_KLain"/>
+    <MESSAGE id="F" action="F" nextState="STATE_KLain"/>
+    <MESSAGE id="H" action="H" nextState="STATE_KLain"/>
+    <MESSAGE id="J" action="J" nextState="STATE_KLain"/>
+    <MESSAGE id="L" action="L" nextState="STATE_KLain"/>
+    <MESSAGE id="M" action="M" nextState="STATE_KLain"/>
+    <MESSAGE id="P" action="P" nextState="STATE_KLain"/>
+    <MESSAGE id="Q" action="Q" nextState="STATE_KLain"/>
+    <MESSAGE id="R" action="R" nextState="STATE_KLain"/>
+    <MESSAGE id="T" action="T" nextState="STATE_KLain"/>
+    <MESSAGE id="V" action="V" nextState="STATE_KLain"/>
+    <MESSAGE id="W" action="W" nextState="STATE_KLain"/>
+    <MESSAGE id="X" action="X" nextState="STATE_KLain"/>
+    <MESSAGE id="Y" action="Y" nextState="STATE_KLain"/>
+    <MESSAGE id="Z" action="Z" nextState="STATE_KLain"/>
+  </STATE>
+
+  <STATE id="STATE_SPASI">
+    <MESSAGE id="SPASI" action=" " nextState="STATE_SPASI"/>
+  </STATE>
+
+  <STATE id="STATE_V"/>
+
+  <STATE id="STATE_Kn">
+    <MESSAGE id="A" action="A" nextState="STATE_KV"/>
+    <MESSAGE id="I" action="I" nextState="STATE_KV"/>
+    <MESSAGE id="U" action="U" nextState="STATE_KV"/>
+    <MESSAGE id="E" action="E" nextState="STATE_KV"/>
+    <MESSAGE id="O" action="O" nextState="STATE_KV"/>
+
+    <MESSAGE id="G" action="G" nextState="STATE_Kmulti"/>
+    <MESSAGE id="Y" action="Y" nextState="STATE_Kmulti"/>
+  </STATE>
+
+  <STATE id="STATE_Kmulti">
+    <MESSAGE id="A" action="A" nextState="STATE_KV"/>
+    <MESSAGE id="I" action="I" nextState="STATE_KV"/>
+    <MESSAGE id="U" action="U" nextState="STATE_KV"/>
+    <MESSAGE id="E" action="E" nextState="STATE_KV"/>
+    <MESSAGE id="O" action="O" nextState="STATE_KV"/>
+  </STATE>
+
+  <STATE id="STATE_Kk">
+    <MESSAGE id="A" action="A" nextState="STATE_KV"/>
+    <MESSAGE id="I" action="I" nextState="STATE_KV"/>
+    <MESSAGE id="U" action="U" nextState="STATE_KV"/>
+    <MESSAGE id="E" action="E" nextState="STATE_KV"/>
+    <MESSAGE id="O" action="O" nextState="STATE_KV"/>
+    <MESSAGE id="H" action="H" nextState="STATE_Kmulti"/>
+  </STATE>
+  
+  <STATE id="STATE_Ks">
+    <MESSAGE id="A" action="A" nextState="STATE_KV"/>
+    <MESSAGE id="I" action="I" nextState="STATE_KV"/>
+    <MESSAGE id="U" action="U" nextState="STATE_KV"/>
+    <MESSAGE id="E" action="E" nextState="STATE_KV"/>
+    <MESSAGE id="O" action="O" nextState="STATE_KV"/>
+    <MESSAGE id="Y" action="Y" nextState="STATE_Kmulti"/>
+    <MESSAGE id="P" action="P" nextState="STATE_Kmulti"/>
+  </STATE>
+
+  <STATE id="STATE_Kg">
+    <MESSAGE id="A" action="A" nextState="STATE_KV"/>
+    <MESSAGE id="I" action="I" nextState="STATE_KV"/>
+    <MESSAGE id="U" action="U" nextState="STATE_KV"/>
+    <MESSAGE id="E" action="E" nextState="STATE_KV"/>
+    <MESSAGE id="O" action="O" nextState="STATE_KV"/>
+    <MESSAGE id="R" action="R" nextState="STATE_Kmulti"/>
+  </STATE>
+
+  <STATE id="STATE_Kb">
+    <MESSAGE id="A" action="A" nextState="STATE_KV"/>
+    <MESSAGE id="I" action="I" nextState="STATE_KV"/>
+    <MESSAGE id="U" action="U" nextState="STATE_KV"/>
+    <MESSAGE id="E" action="E" nextState="STATE_KV"/>
+    <MESSAGE id="O" action="O" nextState="STATE_KV"/>
+    <MESSAGE id="R" action="R" nextState="STATE_Kmulti"/>
+  </STATE>
+
+  <STATE id="STATE_KLain">
+    <MESSAGE id="A" action="A" nextState="STATE_KV"/>
+    <MESSAGE id="I" action="I" nextState="STATE_KV"/>
+    <MESSAGE id="U" action="U" nextState="STATE_KV"/>
+    <MESSAGE id="E" action="E" nextState="STATE_KV"/>
+    <MESSAGE id="O" action="O" nextState="STATE_KV"/>
+  </STATE>
+
+  <STATE id="STATE_KV"/>
+
+
+</FSM>
