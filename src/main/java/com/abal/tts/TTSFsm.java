@@ -32,11 +32,9 @@ public class TTSFsm {
         if(result.size()==0)return"";
         return this.result.toString();
     }
-    
     public String getIteration(){
         return this.trace;
     }
-    
     public TTSFsm(String text){
         this.text=text.toUpperCase();
         this.testFSM();
@@ -49,7 +47,6 @@ public class TTSFsm {
             this.tmpRes="";
         }
     }
-    
     private FSM newFsm1(){
         this.addToResult();
         try {
@@ -79,10 +76,12 @@ public class TTSFsm {
         for(int i=0;i<this.text.length();i++){
             this.curState=f.getCurrentState();
             String trans=String.valueOf(this.text.charAt(i));
+            if(trans.equals(" "))trans="SPASI";
             if(f.ProcessFSM(trans)==null){
                 f=this.newFsm1();
-                this.tmpRes=String.valueOf(this.text.charAt(i));
-                this.trace+="\n"+curState + " => " + this.tmpRes + " : STATE_MULAI (RESTART)";
+                //this.tmpRes=String.valueOf(this.text.charAt(i));
+                //this.trace+="\n"+curState + " => " + this.tmpRes + " : STATE_MULAI (RESTART)";
+                i--;
             }
         }
         this.addToResult();
