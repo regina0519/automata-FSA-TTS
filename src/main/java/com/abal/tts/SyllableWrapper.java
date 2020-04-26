@@ -30,7 +30,7 @@ public class SyllableWrapper {
                 ret+="V";
             }else ret+="K";
         }
-        if(!ret.equals("KV"))ret="UNKNOWN";
+        if(!ret.equals("KV") && !ret.equals("KKV") && !ret.equals("KK"))ret="UNKNOWN";
         return ret;
     }
     private boolean isVowel(char c){

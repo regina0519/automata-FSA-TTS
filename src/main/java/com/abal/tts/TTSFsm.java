@@ -123,6 +123,7 @@ public class TTSFsm {
             }
         }
         this.addToResult();
+        //tahap 2
         this.tmpRes="";
         this.curState="STATE_MULAI";
         f=this.newFsm2();

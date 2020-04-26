@@ -13,6 +13,7 @@
     <MESSAGE id="V" action="V" nextState="STATE_V"/>
     <MESSAGE id="K" action="K" nextState="STATE_K"/>
     <MESSAGE id="KV" action="KV" nextState="STATE_KV"/>
+    <MESSAGE id="KKV" action="KKV" nextState="STATE_KKV"/>
     <MESSAGE id="UNKNOWN" action="UNKNOWN" nextState="STATE_UNKNOWN"/>
   </STATE>
 
@@ -22,11 +23,12 @@
 
   <STATE id="STATE_V" >
     <MESSAGE id="K" action=" K" nextState="STATE_VK"/>
+    <MESSAGE id="KK" action=" KK" nextState="STATE_VK"/>
   </STATE>
   <STATE id="STATE_VK" >
-    <MESSAGE id="K" action=" K" nextState="STATE_VKK"/>
+    <MESSAGE id="K" action=" K" nextState="STATE_VK"/>
   </STATE>
-  <STATE id="STATE_VKK" />
+  
 
 
   <STATE id="STATE_K">
@@ -45,6 +47,7 @@
   <STATE id="STATE_KV">
     <MESSAGE id="K" action="K" nextState="STATE_KVK"/>
     <MESSAGE id="V" action="V" nextState="STATE_KVV"/>
+    <MESSAGE id="KK" action="KK" nextState="STATE_KVKK"/>
   </STATE>
   <STATE id="STATE_KVK">
     <MESSAGE id="K" action="K" nextState="STATE_KVKK"/>
@@ -52,7 +55,9 @@
   <STATE id="STATE_KVKK">
     <MESSAGE id="K" action="K" nextState="STATE_KVKK"/>
   </STATE>
-  <STATE id="STATE_KVV"/>
+  <STATE id="STATE_KVV">
+    <MESSAGE id="KK" action="KK" nextState="STATE_KVKK"/>
+  </STATE>
   <STATE id="STATE_UNKNOWN"/>
 
 </FSM>
