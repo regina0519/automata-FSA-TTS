@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Document   : config.xml
+    Created on : 22 March, 2013, 9:05 AM
+    Author     : ANKIT
+    Description:
+        File specifies states and transition of an FSM.
+        This is an example file.
+-->
+<FSM>
+  <STATE id="STATE_MULAI" type="ID">
+    <MESSAGE id="SPASI" action="SPASI" nextState="STATE_SPASI"/>
+    <MESSAGE id="V" action="V" nextState="STATE_V"/>
+    <MESSAGE id="K" action="K" nextState="STATE_K"/>
+    <MESSAGE id="KV" action="KV" nextState="STATE_KV"/>
+    <MESSAGE id="UNKNOWN" action="UNKNOWN" nextState="STATE_UNKNOWN"/>
+  </STATE>
+
+  <STATE id="STATE_SPASI">
+    <MESSAGE id="SPASI" action="SPASI" nextState="STATE_SPASI"/>
+  </STATE>
+
+  <STATE id="STATE_V" >
+    <MESSAGE id="K" action=" K" nextState="STATE_VK"/>
+  </STATE>
+  <STATE id="STATE_VK" >
+    <MESSAGE id="K" action=" K" nextState="STATE_VKK"/>
+  </STATE>
+  <STATE id="STATE_VKK" />
+
+
+  <STATE id="STATE_K">
+    <MESSAGE id="K" action="K" nextState="STATE_K"/>
+    <MESSAGE id="KV" action="KV" nextState="STATE_KKV"/>
+  </STATE>
+  <STATE id="STATE_KKV">
+    <MESSAGE id="K" action="K" nextState="STATE_KKVK"/>
+    <MESSAGE id="V" action="V" nextState="STATE_KKVV"/>
+  </STATE>
+  <STATE id="STATE_KKVK">
+    <MESSAGE id="K" action="K" nextState="STATE_KKVK"/>
+  </STATE>
+  <STATE id="STATE_KKVV"/>
+
+  <STATE id="STATE_KV">
+    <MESSAGE id="K" action="K" nextState="STATE_KVK"/>
+    <MESSAGE id="V" action="V" nextState="STATE_KVV"/>
+  </STATE>
+  <STATE id="STATE_KVK">
+    <MESSAGE id="K" action="K" nextState="STATE_KVKK"/>
+  </STATE>
+  <STATE id="STATE_KVKK">
+    <MESSAGE id="K" action="K" nextState="STATE_KVKK"/>
+  </STATE>
+  <STATE id="STATE_KVV"/>
+  <STATE id="STATE_UNKNOWN"/>
+
+</FSM>

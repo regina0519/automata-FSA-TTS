@@ -23,7 +23,9 @@ public class TTSFsm {
     private String text;
     private String curState="STATE_MULAI";
     private String trace="";
+    private String trace2="";
     private List<String> result=new ArrayList();
+    private List<String> result2=new ArrayList();
     
     private final String specialCons="NKSGBYHPR";
     private String tmpRes="";
@@ -32,8 +34,15 @@ public class TTSFsm {
         if(result.size()==0)return"";
         return this.result.toString();
     }
+    public String getResult2(){
+        if(result2.size()==0)return"";
+        return this.result2.toString();
+    }
     public String getIteration(){
         return this.trace;
+    }
+    public String getIteration2(){
+        return this.trace2;
     }
     public TTSFsm(String text){
         this.text=text.toUpperCase();
@@ -44,6 +53,12 @@ public class TTSFsm {
     private void addToResult(){
         if(!this.tmpRes.equals("")){
             this.result.add(this.tmpRes);
+            this.tmpRes="";
+        }
+    }
+    private void addToResult2(){
+        if(!this.tmpRes.equals("")){
+            this.result2.add(this.tmpRes);
             this.tmpRes="";
         }
     }
@@ -70,6 +85,29 @@ public class TTSFsm {
         }
         return null;
     }
+    private FSM newFsm2(){
+        this.addToResult2();
+        try {
+            FSM f = new FSM("xmls/tingkat2.xml", new FSMAction() {
+                @Override
+                public boolean action(String curState, String message, String nextState, Object args) {
+                    SyllableWrapper tmp=(SyllableWrapper) args;
+                    TTSFsm.this.trace2+="\n"+curState + " => " + tmp.getPattern() + " : " + nextState;
+                    TTSFsm.this.tmpRes+=tmp.getChars();
+                    return true;
+                }
+            });
+            return f;
+        } catch (ParserConfigurationException ex) {
+            Logger.getLogger(TTSFsm.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SAXException ex) {
+            Logger.getLogger(TTSFsm.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(TTSFsm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
     private void testFSM() {
         FSM f=this.newFsm1();
         if(f==null)return;
@@ -85,5 +123,22 @@ public class TTSFsm {
             }
         }
         this.addToResult();
+        this.tmpRes="";
+        this.curState="STATE_MULAI";
+        f=this.newFsm2();
+        if(f==null)return;
+        for(int i=0;i<this.result.size();i++){
+            String syl=this.result.get(i);
+            this.curState=f.getCurrentState();
+            SyllableWrapper tmp=new SyllableWrapper(syl);
+            String trans=tmp.getPattern();
+            if(trans.equals(" "))trans="SPASI";
+            f.setShareData(tmp);
+            if(f.ProcessFSM(trans)==null){
+                f=this.newFsm2();
+                i--;
+            }
+        }
+        this.addToResult2();
     }
 }
