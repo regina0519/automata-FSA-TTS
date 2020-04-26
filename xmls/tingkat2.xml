@@ -57,6 +57,10 @@
   </STATE>
   <STATE id="STATE_KVV">
     <MESSAGE id="KK" action="KK" nextState="STATE_KVKK"/>
+    <MESSAGE id="K" action="K" nextState="STATE_KVVK"/>
+  </STATE>
+  <STATE id="STATE_KVVK">
+    <MESSAGE id="K" action="K" nextState="STATE_KVVK"/>
   </STATE>
   <STATE id="STATE_UNKNOWN"/>
 
