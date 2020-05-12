@@ -7,7 +7,7 @@ package com.abal.tts;
 
 /**
  *
- * @author jimi
+ * @author regina
  */
 public class Main {
 

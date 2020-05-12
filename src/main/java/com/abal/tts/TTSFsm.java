@@ -17,7 +17,7 @@ import org.xml.sax.SAXException;
 
 /**
  *
- * @author jimi
+ * @author regina
  */
 public class TTSFsm {
     private String text;

@@ -21,7 +21,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author jimi
+ * @author regina
  */
 public class GoogleTTS {
     public static void tes(){
