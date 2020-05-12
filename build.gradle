@@ -20,5 +20,7 @@ dependencies {
     
     // https://mvnrepository.com/artifact/com.googlecode.soundlibs/mp3spi
     implementation group: 'com.googlecode.soundlibs', name: 'mp3spi', version: '1.9.5.4'
+    
+    implementation 'com.google.cloud:google-cloud-storage:1.108.0'
 
 }

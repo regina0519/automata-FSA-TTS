@@ -50,7 +50,7 @@ public class GoogleTTS {
             ByteString audioContents = response.getAudioContent();
             
             // Write the response to the output file.
-            OutputStream out = new FileOutputStream("output.mp3");
+            OutputStream out = new FileOutputStream("/home/jimi/ttsTES/output.mp3");
             out.write(audioContents.toByteArray());
             System.out.println("Audio content written to file \"output.mp3\"");
         } catch (IOException ex) {
