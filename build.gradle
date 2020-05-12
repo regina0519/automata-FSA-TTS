@@ -13,9 +13,12 @@ dependencies {
     testImplementation     'junit:junit:4.13'
     implementation fileTree(dir: 'libs', include: '*.jar')
     // https://mvnrepository.com/artifact/com.google.cloud/google-cloud-texttospeech
-    //implementation group: 'com.google.cloud', name: 'google-cloud-texttospeech', version: '1.0.2'
+    implementation group: 'com.google.cloud', name: 'google-cloud-texttospeech', version: '1.0.2'
     
     // https://mvnrepository.com/artifact/javazoom/jlayer
     //implementation group: 'javazoom', name: 'jlayer', version: '1.0.1'
+    
+    // https://mvnrepository.com/artifact/com.googlecode.soundlibs/mp3spi
+    implementation group: 'com.googlecode.soundlibs', name: 'mp3spi', version: '1.9.5.4'
 
 }
